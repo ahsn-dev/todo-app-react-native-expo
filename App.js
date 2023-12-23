@@ -106,6 +106,7 @@ export default function App() {
           delete newToDos[key];
           setToDos(newToDos);
           saveToDos(newToDos);
+          setEditedText("");
         },
       },
     ]);
@@ -113,7 +114,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <View
         style={Platform.OS === "ios" ? styles.IosHeader : styles.AndroidHeader}
       >
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
   IosHeader: {
     justifyContent: "space-between",
     flexDirection: "row",
-    marginTop: 100,
+    marginTop: 40,
   },
 
   AndroidHeader: {
@@ -221,13 +222,15 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginVertical: 20,
     fontSize: 18,
+    textAlign: "left",
   },
 
   toDo: {
     backgroundColor: theme.toDoBg,
     marginBottom: 10,
     paddingVertical: 20,
-    paddingHorizontal: 20,
+    paddingLeft: 15,
+    paddingRight: 40,
     borderRadius: 15,
     flexDirection: "row",
     alignItems: "center",
@@ -239,11 +242,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     width: "80%",
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
 
   toDoIcons: {
     flexDirection: "row",
-    gap: 10,
+    gap: 20,
   },
 });
